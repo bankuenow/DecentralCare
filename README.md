@@ -1,64 +1,94 @@
-# EcoGenesis
+# DecentralCare
 
-EcoGenesis is a blockchain-based biodiversity tracking and management system built using Clarity smart contracts for the Stacks ecosystem. The project enables transparent recording and monitoring of ecological data across various biomes and their resident organisms.
+A decentralized healthcare insurance marketplace built on the Stacks blockchain with Clarity smart contracts.
 
 ## Overview
 
-This project provides a decentralized solution for:
-- Recording and monitoring various biomes and their characteristics
-- Tracking organism populations and their conservation status
-- Calculating biodiversity metrics for analytical purposes
-- Creating a transparent and immutable record of ecological changes over time
+DecentralCare is a fully decentralized platform that connects healthcare providers with patients seeking insurance coverage. It leverages blockchain technology to create a transparent, efficient, and trustless healthcare insurance ecosystem.
 
-## Contract Structure
+## Key Features
 
-### Data Maps
+- **Healthcare Provider Registration**: Qualified healthcare providers can register on the platform to offer insurance plans.
+- **Health Plan Creation**: Providers can create customized health insurance plans with different coverage options, premium rates, and terms.
+- **Insurance Purchase**: Patients can browse available plans and purchase coverage directly through the platform.
+- **Claims Processing**: Streamlined claims submission and approval/rejection process.
+- **Refund Mechanism**: Fair refund calculations for plan cancellations based on unused coverage time.
+- **Administrative Controls**: Emergency shutdown capabilities and system pause/unpause functionality.
 
-- **biome-catalog**: Stores information about registered biomes including their location, size, and timestamps
-- **organism-catalog**: Records details about organisms, including population sizes and conservation status
-- **biome-diversity-metrics**: Maintains aggregated biodiversity statistics for each biome
+## Technical Components
+
+### Maps
+- `healthcare-providers`: Stores information about registered healthcare providers
+- `members`: Tracks insured members and their active coverage details
+- `health-plans`: Contains all available insurance plans and their specifications
+- `medical-claims`: Manages all submitted insurance claims and their status
 
 ### Key Functions
 
-#### Biome Management
-- `register-biome`: Add a new biome to the system with initial details
-- `update-biome-details`: Modify an existing biome's information
-- `get-biome-details`: Retrieve complete information about a specific biome
+#### For Healthcare Providers
+- `register-healthcare-provider`: Register as a healthcare provider on the platform
+- `create-health-plan`: Create a new health insurance plan with specific terms
+- `process-health-claim`: Review and approve/deny medical claims
 
-#### Organism Management
-- `register-organism`: Add a new organism to the system, associating it with a parent biome
-- `update-organism-census`: Update an organism's population count and conservation status
-- `get-organism-details`: Retrieve complete information about a specific organism
+#### For Patients/Members
+- `purchase-health-plan`: Purchase an insurance plan from a provider
+- `submit-health-claim`: Submit a medical claim for processing
+- `cancel-health-plan`: Cancel existing coverage and receive a prorated refund
 
-#### Metrics and Analytics
-- `get-biome-diversity-metrics`: Access biodiversity statistics for a specific biome
-- `get-total-biomes`: Get the total number of registered biomes
-- `get-total-organisms`: Get the total number of registered organisms
+#### Administrative Functions
+- `set-system-status`: Pause or unpause the platform operations
+- `emergency-shutdown`: Trigger an emergency shutdown of the platform
 
-## Conservation Status Classifications
+## Getting Started
 
-Organisms can be classified with the following preservation states:
-- `stable`: Population is healthy and not at immediate risk
-- `threatened`: Population shows concerning decline but not severe
-- `endangered`: Population at significant risk of extinction
-- `extinct`: No known living specimens remain
+### Prerequisites
+- [Clarinet](https://github.com/hirosystems/clarinet) - Clarity development environment
+- Basic understanding of the Stacks blockchain and Clarity language
 
-## Security Features
+### Installation
 
-- Owner-only administrative functions
-- Input validation to ensure data integrity
-- Proper error handling with descriptive error codes
-- Status verification for valid conservation classifications
+1. Clone this repository
+   ```
+   git clone https://github.com/yourusername/decentralcare.git
+   cd decentralcare
+   ```
 
-## Development
+2. Install dependencies
+   ```
+   npm install
+   ```
 
-To deploy and interact with this contract:
+3. Test the smart contract
+   ```
+   clarinet test
+   ```
 
-1. Install the [Clarinet](https://github.com/hirosystems/clarinet) development environment
-2. Clone this repository
-3. Use `clarinet console` to test the contract locally
-4. Deploy to testnet or mainnet when ready
+## Usage
+
+### Deploy the Contract
+```bash
+clarinet deploy
+```
+
+### Monitor Events
+```bash
+clarinet events watch
+```
+
+## Contributing
+
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
 
 ## License
 
 This project is licensed under the MIT License - see the LICENSE file for details.
+
+## Acknowledgments
+
+- The Stacks Foundation
+- Clarity language contributors
+- Blockchain healthcare innovators
